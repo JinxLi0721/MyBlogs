@@ -11,7 +11,9 @@ require('./services/passport');
 require("./services/cache");
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, { useMongoClient: true });
+mongoose.connect(keys.mongoURI, { useMongoClient: true })
+.then(res => console.log("connent to mongo"))
+.catch(rej => console.log(rej));
 
 const app = express();
 
